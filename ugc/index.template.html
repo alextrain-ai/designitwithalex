@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alex — UGC Creator</title>
+<meta name="description" content="UGC creator for fitness, tech, SaaS, travel and everyday-performance brands. Short-form video that stops the scroll and sells the product.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%233452FF'/%3E%3Ctext x='50' y='71' font-size='62' font-family='Arial Black,Arial,sans-serif' font-weight='900' fill='white' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Alex — UGC Creator">
+<meta property="og:description" content="UGC for fitness, tech, SaaS, travel and everyday-performance brands. Short-form video that stops the scroll and sells the product.">
+<meta property="og:image" content="https://designitwithalex.com/ugc/media/magnesium-poster.jpg">
+<meta property="og:url" content="https://designitwithalex.com/ugc/">
+<link rel="canonical" href="https://designitwithalex.com/ugc/">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url(data:font/woff2;base64,{{ANTON}}) format('woff2')}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-display:swap;src:url(data:font/woff2;base64,{{ARCHIVO}}) format('woff2')}
+
+:root{
+  --bg:#F4F5F2;
+  --bg-raise:#FFFFFF;
+  --ink:#101319;
+  --ink-2:#4A5160;
+  --line:#D8DBD4;
+  --accent:#3452FF;
+  --accent-ink:#FFFFFF;
+  --display:'Anton', 'Arial Narrow', sans-serif;
+  --body:'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --mono:ui-monospace, 'SF Mono', Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0A0D14; --bg-raise:#11151F; --ink:#EDEFF2; --ink-2:#8B93A6;
+    --line:#232938; --accent:#4D67FF; --accent-ink:#FFFFFF;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A0D14; --bg-raise:#11151F; --ink:#EDEFF2; --ink-2:#8B93A6;
+  --line:#232938; --accent:#4D67FF; --accent-ink:#FFFFFF;
+}
+:root[data-theme="light"]{
+  --bg:#F4F5F2; --bg-raise:#FFFFFF; --ink:#101319; --ink-2:#4A5160;
+  --line:#D8DBD4; --accent:#3452FF; --accent-ink:#FFFFFF;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:var(--body); font-size:1.0625rem; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--accent);color:var(--accent-ink)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+img,video{max-width:100%;display:block}
+
+.wrap{max-width:72rem;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+/* The work grid is the reason anyone opens this page — give it more room than the
+   reading-width sections so four 9:16 cards still render at a watchable size. */
+.wrap.wide{max-width:88rem}
+
+/* ---------- header ---------- */
+.top{
+  position:absolute;inset:0 0 auto 0;z-index:5;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.5rem clamp(1.25rem,4vw,3rem);
+}
+.wordmark{
+  font-family:var(--display);font-size:1.05rem;letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.wordmark span{color:var(--accent)}
+.top-cta{
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;border:1px solid var(--line);border-radius:999px;
+  padding:.55em 1.1em;background:color-mix(in srgb, var(--bg) 72%, transparent);
+  backdrop-filter:blur(6px);
+  transition:border-color .2s, color .2s;
+}
+.top-cta:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- hero ---------- */
+.hero{
+  position:relative;
+  padding:9rem clamp(1.25rem,4vw,3rem) clamp(3rem,7vw,5rem);
+}
+.hero-grid{
+  max-width:72rem;margin:0 auto;
+  display:grid;grid-template-columns:1.35fr .8fr;gap:clamp(2rem,5vw,4rem);align-items:center;
+}
+@media (max-width:56rem){ .hero-grid{grid-template-columns:1fr} }
+.hero h1{
+  font-family:var(--display);font-weight:400;
+  font-size:clamp(2.9rem, 8vw, 6.5rem);
+  line-height:.94;letter-spacing:.005em;text-transform:uppercase;
+  text-wrap:balance;
+}
+.hero h1 .accent{color:var(--accent)}
+.hero-sub strong{color:var(--ink);font-weight:600}
+.hero-sub{
+  margin-top:1.75rem;max-width:36rem;color:var(--ink-2);font-size:1.15rem;
+}
+.hero-row{display:flex;flex-wrap:wrap;gap:1.25rem;align-items:center;margin-top:2.25rem}
+.btn{
+  display:inline-block;font-family:var(--body);font-weight:600;font-size:1rem;
+  text-decoration:none;border-radius:999px;padding:.9em 1.9em;
+  background:var(--accent);color:var(--accent-ink);border:1px solid var(--accent);
+  transition:transform .18s cubic-bezier(.2,.7,.2,1), box-shadow .18s;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px -12px var(--accent)}
+.btn:active{transform:translateY(0)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent);box-shadow:none}
+.hero-note{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--ink-2);text-transform:uppercase}
+
+/* portrait slot */
+.portrait{
+  position:relative;aspect-ratio:4/5;border-radius:4px;overflow:hidden;
+  background:var(--bg-raise);border:1px solid var(--line);
+}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait.empty::after{
+  content:"PHOTO";position:absolute;inset:0;display:grid;place-items:center;
+  font-family:var(--mono);font-size:.75rem;letter-spacing:.16em;color:var(--ink-2);
+}
+@media (max-width:56rem){ .portrait{max-width:20rem;margin-top:2.5rem} }
+
+/* ---------- marquee ---------- */
+.marquee{border-block:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:.9rem 0;user-select:none}
+.marquee-track{display:inline-block;animation:slide 30s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){ .marquee-track{animation:none} }
+.marquee span{
+  font-family:var(--display);text-transform:uppercase;font-size:1.05rem;letter-spacing:.06em;
+  color:var(--ink-2);padding:0 1.4rem;
+}
+.marquee span b{color:var(--accent);font-weight:400}
+
+/* ---------- sections ---------- */
+section{padding:clamp(3.5rem,7vw,5.5rem) 0}
+.eyebrow{
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:1rem;
+}
+h2{
+  font-family:var(--display);font-weight:400;text-transform:uppercase;
+  font-size:clamp(2rem,5vw,3.4rem);line-height:1.02;letter-spacing:.01em;
+  text-wrap:balance;margin-bottom:1rem;
+}
+.lede{color:var(--ink-2);max-width:38rem;margin-bottom:2.5rem}
+
+/* ---------- work grid ---------- */
+.work{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+@media (max-width:64rem){ .work{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:34rem){ .work{grid-template-columns:1fr;gap:2rem} }
+
+.piece{display:flex;flex-direction:column;gap:.9rem}
+.frame{
+  position:relative;width:100%;aspect-ratio:9/16;
+  border-radius:14px;overflow:hidden;cursor:pointer;
+  background:#000;border:1px solid var(--line);
+  padding:0;display:block;
+  transition:transform .25s cubic-bezier(.2,.7,.2,1), border-color .25s, box-shadow .25s;
+}
+.frame:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 18px 40px -22px var(--accent)}
+.frame video,.frame img{width:100%;height:100%;object-fit:cover}
+.frame video{position:absolute;inset:0;opacity:0;transition:opacity .4s}
+.frame video.ready{opacity:1}
+.frame .play{
+  position:absolute;right:.6rem;bottom:.6rem;z-index:2;
+  width:2.2rem;height:2.2rem;border-radius:999px;
+  background:rgba(0,0,0,.55);backdrop-filter:blur(6px);
+  display:grid;place-items:center;pointer-events:none;
+  transition:background .2s;
+}
+.frame:hover .play{background:var(--accent)}
+.frame .play svg{width:.85rem;height:.85rem;fill:#fff;margin-left:2px}
+.frame .dur{
+  position:absolute;left:.6rem;bottom:.6rem;z-index:2;
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:#fff;
+  background:rgba(0,0,0,.55);backdrop-filter:blur(6px);
+  padding:.25em .6em;border-radius:999px;pointer-events:none;
+}
+.meta .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.meta h3{font-family:var(--body);font-weight:700;font-size:1.02rem;line-height:1.3;margin:.3rem 0 .35rem}
+.meta p{color:var(--ink-2);font-size:.92rem;line-height:1.5}
+/* The format label tells a brand "I can shoot this kind of video", which is the thing
+   they're actually scanning for — more useful to them than the product category. */
+.angle{
+  display:inline-block;margin-bottom:.5rem;
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-2);border:1px solid var(--line);border-radius:999px;padding:.3em .7em;
+}
+
+.workfoot strong{color:var(--ink);font-weight:700}
+.workfoot{
+  margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line);
+  color:var(--ink-2);font-size:.95rem;max-width:44rem;
+}
+
+/* ---------- lightbox ---------- */
+.lb{
+  position:fixed;inset:0;z-index:50;display:none;
+  background:rgba(6,8,13,.92);backdrop-filter:blur(10px);
+  place-items:center;padding:clamp(1rem,4vw,3rem);
+}
+.lb[open]{display:grid}
+.lb-inner{position:relative;height:min(88vh,900px);aspect-ratio:9/16;max-width:100%}
+.lb video{width:100%;height:100%;border-radius:12px;background:#000;object-fit:contain}
+.lb-close{
+  position:absolute;top:-3rem;right:0;
+  background:none;border:1px solid rgba(255,255,255,.25);color:#fff;
+  border-radius:999px;width:2.4rem;height:2.4rem;cursor:pointer;
+  font-size:1.2rem;line-height:1;display:grid;place-items:center;
+  transition:border-color .2s,background .2s;
+}
+.lb-close:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.lb-cap{
+  position:absolute;bottom:-2.4rem;left:0;right:0;text-align:center;
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);
+}
+@media (max-width:34rem){
+  .lb{padding:0}
+  .lb-inner{height:100vh;width:100vw;aspect-ratio:auto}
+  .lb video{border-radius:0}
+  .lb-close{top:1rem;right:1rem;background:rgba(0,0,0,.5)}
+  .lb-cap{bottom:1rem}
+}
+
+/* ---------- deliver ---------- */
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1.25rem}
+.panel{
+  background:var(--bg-raise);border:1px solid var(--line);border-radius:4px;
+  padding:clamp(1.5rem,3vw,2.25rem);
+  display:flex;flex-direction:column;gap:1rem;
+  transition:border-color .25s;
+}
+.panel:hover{border-color:var(--accent)}
+.panel .k{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:var(--ink-2);text-transform:uppercase}
+.panel h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(1.35rem,2.2vw,1.75rem);line-height:1.05}
+.panel ul{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.panel li{padding-left:1.35rem;position:relative;font-size:.97rem}
+.panel li::before{content:"";position:absolute;left:0;top:.52em;width:.6em;height:.6em;background:var(--accent)}
+
+/* ---------- about ----------
+   No border-top: this section now sits directly under the marquee, whose own bottom
+   border already draws the line. */
+.about .grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+@media (max-width:56rem){ .about .grid{grid-template-columns:1fr} }
+.about .grid > div:first-child{position:sticky;top:2rem}
+@media (max-width:56rem){ .about .grid > div:first-child{position:static} }
+.about-copy p{margin-bottom:1.1rem;max-width:36rem}
+.about-copy p:last-child{margin-bottom:0}
+.about-copy strong{font-weight:700;color:var(--ink)}
+/* The intro clip reuses .frame, so it inherits the preview loop and lightbox wiring the
+   work grid already has. Capped in width because a 9:16 card at full column width would
+   be taller than the sticky viewport it lives in. */
+.intro{margin-top:1.75rem;max-width:15rem}
+.intro-cap{
+  margin-top:.85rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-2);line-height:1.55;
+}
+@media (max-width:56rem){ .intro{max-width:13rem} }
+
+/* ---------- contact ---------- */
+.contact{border-top:1px solid var(--line);background:var(--accent);color:var(--accent-ink)}
+.contact .eyebrow{color:var(--accent-ink);opacity:.8}
+.contact h2{margin-bottom:1.25rem}
+.contact p{max-width:34rem;opacity:.92;margin-bottom:2rem}
+.contact .terms-note{
+  font-size:.92rem;opacity:.75;max-width:32rem;
+  padding-left:.9rem;border-left:2px solid color-mix(in srgb, var(--accent-ink) 40%, transparent);
+}
+.contact .reply-note{
+  font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;
+  opacity:.8;margin-top:1.75rem;margin-bottom:0;
+}
+.contact .links{margin-top:1.75rem}
+.links{display:flex;flex-wrap:wrap;gap:1rem}
+.link{
+  display:inline-flex;align-items:center;gap:.6rem;
+  font-family:var(--body);font-weight:600;font-size:1.02rem;text-decoration:none;
+  background:var(--accent-ink);color:var(--accent);
+  border-radius:999px;padding:.85em 1.6em;
+  transition:transform .18s cubic-bezier(.2,.7,.2,1);
+}
+.link:hover{transform:translateY(-2px)}
+.link svg{width:1.05em;height:1.05em;fill:currentColor}
+
+footer{border-top:1px solid var(--line);padding:2rem 0 2.5rem;color:var(--ink-2);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:baseline}
+footer .fm{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
+footer a{color:var(--ink-2)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <span class="wordmark">Alex <span>· UGC</span></span>
+  <a class="top-cta" href="#contact">Work with me</a>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Intro">
+    <div class="hero-grid">
+      <div>
+        <h1>
+          I make people<br><span class="accent">stop scrolling.</span>
+        </h1>
+        <p class="hero-sub">I make UGC for <strong>fitness, tech, SaaS, travel and everyday-performance</strong> brands. Short-form video that looks like a real person talking — because it is one — and still sells the product.</p>
+        <div class="hero-row">
+          <a class="btn" href="#contact">Work with me</a>
+          <a class="btn ghost" href="#work">See the work</a>
+        </div>
+        <p class="hero-note" style="margin-top:1.5rem">Prague, CZ · Filming in English, Czech &amp; Russian</p>
+      </div>
+      <div class="portrait" id="portrait">
+        <img src="media/alex.jpg" alt="Alex, the creator" width="900" height="1125">
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="mq">
+      <span>Fitness <b>●</b></span><span>Supplements <b>●</b></span><span>Tech &amp; gadgets <b>●</b></span><span>Apps &amp; SaaS <b>●</b></span><span>Travel <b>●</b></span><span>Grooming <b>●</b></span><span>Hook writing <b>●</b></span><span>Talking head <b>●</b></span><span>POV demo <b>●</b></span><span>Screen recording <b>●</b></span><span>Tutorial <b>●</b></span><span>Problem / solution <b>●</b></span><span>Vertical 9:16 <b>●</b></span>
+    </div>
+  </div>
+
+  <section class="about" aria-labelledby="about-h">
+    <div class="wrap grid">
+      <div>
+        <p class="eyebrow">Who you're hiring</p>
+        <h2 id="about-h">Hi, I'm Alex</h2>
+        <div class="intro">
+          <button class="frame" data-src="media/intro.mp4" data-title="Meet Alex — intro" aria-label="Play Alex's intro video with sound">
+            <img src="media/intro-poster.jpg" alt="Alex talking to camera at home, caption reading: Hey, I'm Alex" width="720" height="1280" loading="lazy" decoding="async">
+            <video data-preview="media/intro-preview.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+            <span class="dur">0:33</span>
+            <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <p class="intro-cap">Rather hear it than read it? 33 seconds, with sound.</p>
+        </div>
+      </div>
+      <div class="about-copy">
+        <p>I'm 20, based in Prague, and I make short-form video every single day.</p>
+        <p>I didn't come to this from acting. I came from editing — building motion design and ads for brands, watching which frames people actually stayed for. Then I started making my own videos, posting one a day, and learned the harder half of the job: <strong>the first two seconds decide everything.</strong> You can have a perfect product and lose the viewer before you've said its name.</p>
+        <p>So that's what I obsess over. The hook. The pacing. The moment where a person decides to keep watching or flick away.</p>
+        <p>I shoot across fitness, tech, SaaS, travel and everyday-performance products — not because I haven't picked a lane, but because the same thing is being sold in all of them: a person you believe. A supplement, a focus tool, a client portal, a power bank when your phone hits 5% halfway across town. Different product, same two seconds deciding whether anyone stays.</p>
+        <p>I'm early in this and I'm not going to pretend otherwise. What I'll say instead: I shoot constantly, I study what works, and every video I make is better than the one before it. If you want someone who treats your product like their own reel — that's me.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="work-h">
+    <div class="wrap wide">
+      <p class="eyebrow">The work</p>
+      <h2 id="work-h">Seven products, seven angles</h2>
+      <p class="lede">Seven products, seven different formats — problem/solution, talking-head demo, story-led testimonial, POV lifestyle, screen-record walkthrough, tutorial. All shot, scripted, and edited by me, hook to CTA. Tap any of them to watch with sound.</p>
+
+      <div class="work">
+        <article class="piece">
+          <button class="frame" data-src="media/massage-gun.mp4" data-title="Massage gun — recovery" aria-label="Play the massage gun video with sound">
+            <img src="media/massage-gun-poster.jpg" alt="Alex on a leg machine in a gym, hook text reading: Walking like a penguin after leg day?" width="720" height="1280" loading="lazy" decoding="async">
+            <video data-preview="media/massage-gun-preview.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+            <span class="dur">0:22</span>
+            <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <div class="meta">
+            <p class="k">Fitness / recovery</p>
+            <h3>Massage gun</h3>
+            <span class="angle">Problem → solution</span>
+            <p>Shot in the gym, straight after the set. Humour hook on a pain everyone in that room has felt.</p>
+          </div>
+        </article>
+
+        <article class="piece">
+          <button class="frame" data-src="media/opal.mp4" data-title="Opal — focus tool" aria-label="Play the Opal video with sound">
+            <img src="media/opal-poster.jpg" alt="Alex talking to camera holding a device, hook text reading: Cheat code for focus" width="720" height="1280" loading="lazy" decoding="async">
+            <video data-preview="media/opal-preview.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+            <span class="dur">0:28</span>
+            <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <div class="meta">
+            <p class="k">Tech / productivity</p>
+            <h3>Focus tool</h3>
+            <span class="angle">Talking-head demo</span>
+            <p>Handheld, at home, product in frame the whole time. Talking-head demo that never feels like an ad read.</p>
+          </div>
+        </article>
+
+        <article class="piece">
+          <button class="frame" data-src="media/magnesium.mp4" data-title="Magnesium — supplement" aria-label="Play the magnesium video with sound">
+            <img src="media/magnesium-poster.jpg" alt="Close talking-head shot of Alex, hook text reading: Fixing my 3pm energy crash" width="720" height="1280" loading="lazy" decoding="async">
+            <video data-preview="media/magnesium-preview.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+            <span class="dur">0:40</span>
+            <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <div class="meta">
+            <p class="k">Supplements</p>
+            <h3>Magnesium</h3>
+            <span class="angle">Story-led testimonial</span>
+            <p>The long one. Clean direct-to-camera, story first, product arrives once you already care.</p>
+          </div>
+        </article>
+
+        <article class="piece">
+          <button class="frame" data-src="media/powerbank.mp4" data-title="Power bank — travel tech" aria-label="Play the power bank video with sound">
+            <img src="media/powerbank-poster.jpg" alt="POV shot walking outdoors holding a phone at 5 percent battery, hook text reading: The worst feeling when traveling" width="720" height="1280" loading="lazy" decoding="async">
+            <video data-preview="media/powerbank-preview.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+            <span class="dur">0:18</span>
+            <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <div class="meta">
+            <p class="k">Tech / travel</p>
+            <h3>Power bank</h3>
+            <span class="angle">POV / lifestyle</span>
+            <p>Outdoors, POV, real phone on 5%. The problem happens on camera instead of being described.</p>
+          </div>
+        </article>
+
+        <article class="piece">
+          <button class="frame" data-src="media/notion.mp4" data-title="Client portal — B2B SaaS" aria-label="Play the client portal video with sound">
+            <img src="media/notion-poster.jpg" alt="Hands typing on a laptop by a window, hook text reading: Why your clients secretly hate Google Drive" width="720" height="1280" loading="lazy" decoding="async">
+            <video data-preview="media/notion-preview.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+            <span class="dur">0:19</span>
+            <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <div class="meta">
+            <p class="k">B2B SaaS</p>
+            <h3>Client portal</h3>
+            <span class="angle">Screen-record walkthrough</span>
+            <p>Mostly screen recording — a real workspace walked through end to end, cut against hands-on-laptop b-roll so it still feels human.</p>
+          </div>
+        </article>
+
+        <article class="piece">
+          <button class="frame" data-src="media/got2b.mp4" data-title="Hair clay — grooming" aria-label="Play the hair clay video with sound">
+            <img src="media/got2b-poster.jpg" alt="Alex in a bathroom mirror mid-styling, hook text reading: You're using hair clay completely wrong" width="720" height="1280" loading="lazy" decoding="async">
+            <video data-preview="media/got2b-preview.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+            <span class="dur">0:18</span>
+            <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <div class="meta">
+            <p class="k">Beauty / grooming</p>
+            <h3>Hair clay</h3>
+            <span class="angle">Tutorial / how-to</span>
+            <p>Bathroom mirror, natural light. Teaches two techniques before it sells anything, with the before and after on camera.</p>
+          </div>
+        </article>
+
+        <article class="piece">
+          <button class="frame" data-src="media/motion.mp4" data-title="AI scheduler — productivity" aria-label="Play the AI scheduler video with sound">
+            <img src="media/motion-poster.jpg" alt="Close talking-head shot of Alex, hook text reading: Stop manual planning" width="720" height="1280" loading="lazy" decoding="async">
+            <video data-preview="media/motion-preview.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+            <span class="dur">0:30</span>
+            <span class="play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <div class="meta">
+            <p class="k">AI / productivity</p>
+            <h3>AI scheduler</h3>
+            <span class="angle">Talking head + screen capture</span>
+            <p>Frustration first, then the product does the talking — 4K screen capture of an AI building the week around a plain-language request.</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="workfoot">These are my own concepts, filmed with products I actually use — made to show how I work, not paid campaigns. I can shoot any of these formats for your product. I can also shoot the <strong>same</strong> product three ways, so you can test which angle converts before you put budget behind one.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="deliver-h">
+    <div class="wrap">
+      <p class="eyebrow">What you get</p>
+      <h2 id="deliver-h">Simple to work with</h2>
+      <div class="panels">
+        <article class="panel">
+          <p class="k">01 — Formats</p>
+          <h3>Ready to post</h3>
+          <ul>
+            <li>Vertical 9:16, 1080p</li>
+            <li>Hook, body, CTA — full script</li>
+            <li>Burned-in captions</li>
+            <li>Raw files — on request</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <p class="k">02 — Process</p>
+          <h3>How it runs</h3>
+          <ul>
+            <li>You send the brief (and product, if there is one)</li>
+            <li>I send hook angles first</li>
+            <li>You pick, I shoot</li>
+            <li>Revisions — agreed per project</li>
+          </ul>
+        </article>
+        <article class="panel">
+          <p class="k">03 — Terms</p>
+          <h3>The details</h3>
+          <ul>
+            <li>Usage rights — agreed per project</li>
+            <li>Paid ads &amp; whitelisting — discussed upfront</li>
+            <li>Exclusivity — on request</li>
+            <li>Rates &amp; timeline — on request</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-h">
+    <div class="wrap">
+      <p class="eyebrow">Work with me</p>
+      <h2 id="contact-h">Let's make your next ad</h2>
+      <p>Tell me what you're selling and who it's for. I'll come back with hook angles, a timeline, and a quote — before you commit to anything.</p>
+      <p class="terms-note">Paid collaborations — and product sent along with it is always welcome. Rates, usage rights and timelines we agree together before anything starts.</p>
+      <p class="reply-note">I reply within 24 hours.</p>
+      <div class="links">
+        <a class="link" href="mailto:alexdesign@designitwithalex.com?subject=UGC%20enquiry">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          alexdesign@designitwithalex.com
+        </a>
+        <a class="link" href="https://instagram.com/alex__xman" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.05 1.8.25 2.2.42.6.22 1 .48 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.1A6.7 6.7 0 1 0 18.7 12 6.7 6.7 0 0 0 12 5.3zm0 11a4.3 4.3 0 1 1 4.3-4.3 4.3 4.3 0 0 1-4.3 4.3zm6.9-11.3a1.6 1.6 0 1 1-1.6-1.6 1.6 1.6 0 0 1 1.6 1.6z"/></svg>
+          @alex__xman
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Video player">
+  <div class="lb-inner">
+    <button class="lb-close" id="lb-close" aria-label="Close video">&times;</button>
+    <video id="lb-video" controls playsinline preload="none"></video>
+    <p class="lb-cap" id="lb-cap"></p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span class="fm">Alex · UGC Creator</span>
+    <span>Short-form video for brands · Prague</span>
+    <span class="fm">© <span id="yr"></span></span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* Duplicate the marquee content so the -50% slide loops seamlessly. */
+(function(){
+  const mq = document.getElementById('mq');
+  if (mq) mq.innerHTML += mq.innerHTML;
+})();
+
+/* ---------- preview loops ----------
+   Previews are preload="none" until the card is near the viewport, so the page costs
+   only its posters on first paint. Under reduced-motion we never attach them at all. */
+(function(){
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;
+
+  const vids = [...document.querySelectorAll('.frame video[data-preview]')];
+  if (!vids.length || !('IntersectionObserver' in window)) return;
+
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries){
+      const v = e.target;
+      if (e.isIntersecting){
+        if (!v.src){
+          v.src = v.dataset.preview;
+          v.addEventListener('canplay', () => v.classList.add('ready'), {once:true});
+        }
+        // play() rejects on some browsers/power-saving modes — that's fine, poster stays.
+        v.play().catch(() => {});
+      } else {
+        v.pause();
+      }
+    }
+  }, {rootMargin: '200px 0px', threshold: 0.1});
+
+  vids.forEach(v => io.observe(v));
+})();
+
+/* ---------- lightbox ---------- */
+(function(){
+  const lb    = document.getElementById('lb');
+  const video = document.getElementById('lb-video');
+  const cap   = document.getElementById('lb-cap');
+  const close = document.getElementById('lb-close');
+  let lastFocus = null;
+
+  function open(src, title){
+    lastFocus = document.activeElement;
+    video.src = src;
+    cap.textContent = title || '';
+    lb.setAttribute('open', '');
+    document.body.style.overflow = 'hidden';
+    close.focus();
+    video.play().catch(() => {});
+  }
+  function shut(){
+    lb.removeAttribute('open');
+    video.pause();
+    // Drop the source so a closed lightbox isn't holding a buffered video in memory.
+    video.removeAttribute('src');
+    video.load();
+    document.body.style.overflow = '';
+    if (lastFocus) lastFocus.focus();
+  }
+
+  document.querySelectorAll('.frame').forEach(btn => {
+    btn.addEventListener('click', () => open(btn.dataset.src, btn.dataset.title));
+  });
+  close.addEventListener('click', shut);
+  lb.addEventListener('click', e => { if (e.target === lb) shut(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && lb.hasAttribute('open')) shut();
+  });
+})();
+</script>
+</body>
+</html>
